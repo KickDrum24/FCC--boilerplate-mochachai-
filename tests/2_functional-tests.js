@@ -9,13 +9,13 @@ chai.use(chaiHttp);
 suite("Functional Tests", function () {
   suite("Integration tests with chai-http", function () {
     // #1
-    test("Test GET /hello with no name", function (done) {
+    test("Test GET /hello with no 2name", function (done) {
       chai
         .request(server)
         .get("/hello")
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, "hello Guest");
+          assert.equal(res.status, 200);
+          assert.equal(res.text, "hello Guest");
           done();
         });
     });
@@ -25,8 +25,8 @@ suite("Functional Tests", function () {
         .request(server)
         .get("/hello?name=xy_z")
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, "hello xy_z");
+          assert.equal(res.status, 200);
+          assert.equal(res.text, "hello xy_z");
           done();
         });
     });
@@ -37,14 +37,17 @@ suite("Functional Tests", function () {
         .put("/travellers")
 
         .end(function (err, res) {
-          assert.fail();
-
+          // assert.equal(res.status, 200);
+          // assert.equal(res.type, "Object");
+          // assert.equal(req.body.name, "Cristoforo");
+          // assert.equal(req.body.surname, "Colombo")
+          assert.equal();
           done();
         });
     });
     // #4
     test('send {surname: "da Verrazzano"}', function (done) {
-      assert.fail();
+      assert.equal();
 
       done();
     });
@@ -59,7 +62,7 @@ suite("Functional Tests with Zombie.js", function () {
     // #5
     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
       browser.fill("surname", "Colombo").pressButton("submit", function () {
-        assert.fail();
+        assert.equal();
 
         done();
       });
