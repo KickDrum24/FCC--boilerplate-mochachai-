@@ -46,31 +46,38 @@ suite("Functional Tests", function () {
     });
     // #4
     test('send {surname: "da Verrazzano"}', function (done) {
-      assert.equal();
-
-      done();
+      chai
+      .request(server)
+        .put("/travellers")
+        .send({surname: "da Verrazzano"})
+        .end(function (err, res) {
+          assert.equal(res.status, 200);
+          assert.equal(res.type, "application/json");
+          assert.equal(res.body.name, "Giovanni");
+          assert.equal(res.body.surname, "da Verrazzano")
+          done();
     });
   });
 });
 
-const Browser = require("zombie");
+// const Browser = require("zombie");
 
-suite("Functional Tests with Zombie.js", function () {
+// suite("Functional Tests with Zombie.js", function () {
 
-  suite('"Famous Italian Explorers" form', function () {
-    // #5
-    test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-      browser.fill("surname", "Colombo").pressButton("submit", function () {
-        assert.equal();
+//   suite('"Famous Italian Explorers" form', function () {
+//     // #5
+//     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
+//       browser.fill("surname", "Colombo").pressButton("submit", function () {
+//         assert.equal();
 
-        done();
-      });
-    });
-    // #6
-    test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
-      assert.fail();
+//         done();
+//       });
+//     });
+//     // #6
+//     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
+//       assert.fail();
 
-      done();
-    });
-  });
+//       done();
+//     });
+//   });
 });
