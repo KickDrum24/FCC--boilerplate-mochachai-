@@ -61,11 +61,11 @@ suite("Functional Tests", function () {
 });
 });
 const Browser = require("zombie");
-
+Browser.site = 'https://stark-crag-30930.herokuapp.com/';
 
 suite("Functional Tests with Zombie.js", function () {
   const browser = new Browser();
-  Browser.site = 'https://stark-crag-30930.herokuapp.com/';
+  // Browser.site = 'https://stark-crag-30930.herokuapp.com/';
   // Browser.localhost('example.com', process.env.PORT || 3000);
   suiteSetup(function(done) {
     return browser.visit('/', done);
