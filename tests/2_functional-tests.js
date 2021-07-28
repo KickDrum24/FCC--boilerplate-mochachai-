@@ -65,7 +65,8 @@ const Browser = require("zombie");
 
 suite("Functional Tests with Zombie.js", function () {
   const browser = new Browser();
-  Browser.localhost('example.com', process.env.PORT || 3000);
+  Browser.site = 'https://stark-crag-30930.herokuapp.com/';
+  // Browser.localhost('example.com', process.env.PORT || 3000);
   suiteSetup(function(done) {
     return browser.visit('/', done);
   })
